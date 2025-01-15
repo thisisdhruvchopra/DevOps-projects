@@ -19,19 +19,19 @@ Docker will containerize both services, and Docker Compose will manage and deplo
 
 Below is the directory layout for the project:
 
+```
 microservices-app/
 ├── python-service/
-│ ├── app.py
-│ ├── Dockerfile
-│ ├── requirements.txt
+│   ├── app.py
+│   ├── Dockerfile
+│   ├── requirements.txt
 ├── java-service/
-│ ├── src/main/java/com/example/demo/DemoApplication.java
-│ ├── src/main/resources/application.properties
-│ ├── Dockerfile
-│ ├── pom.xml
+│   ├── src/main/java/com/example/demo/DemoApplication.java
+│   ├── src/main/resources/application.properties
+│   ├── Dockerfile
+│   ├── pom.xml
 ├── docker-compose.yml
-
----
+```
 
 ## Python Service Details
 
