@@ -1,4 +1,33 @@
+# A Typical YAML file looks like this : 
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25% # Up to 25% of Pods can be unavailable during an update
+      maxSurge: 50%       # Up to 50% more Pods can be created during the rollout
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.14.2
+          ports:
+            - containerPort: 80
 
+```
 # Explanation of Kubernetes Deployment YAML
 
 This document explains each line of the given Kubernetes YAML file in detail.
@@ -86,6 +115,43 @@ spec:
 - **Definition**: Specifies the configuration of containers within each Pod.
 - **Purpose**: 
   - A Pod can run one or more containers, and this section defines their behavior and configuration.
+ 
+
+**Rolling Update** is the default deployment strategy in Kubernetes. It replaces old Pods with new ones incrementally to ensure high availability and zero downtime.
+
+## Key Concepts
+
+1. **Gradual Pod Replacement**: Old Pods are replaced incrementally, ensuring some Pods always remain available.
+2. **Rollback Support**: Easily rollback to a previous version if issues occur.
+
+## Configuration
+
+```yaml
+strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxUnavailable: 25% # Maximum Pods unavailable during update
+    maxSurge: 50%       # Maximum additional Pods created during update
+```
+
+- **`maxUnavailable`**: Maximum Pods unavailable at a time (absolute number or percentage).
+- **`maxSurge`**: Maximum Pods created above desired replicas during the update.
+
+## Benefits
+
+- High availability during updates.
+- Controlled, incremental rollout.
+- Supports rollbacks for stability.
+
+## Example Command
+
+Rollback if needed:
+```bash
+kubectl rollout undo deployment/<deployment-name>
+```
+
+Rolling Update ensures your applications are updated with minimal downtime and maximum reliability.
+
 
 ---
 
