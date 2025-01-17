@@ -117,9 +117,10 @@ spec:
   - A Pod can run one or more containers, and this section defines their behavior and configuration.
  
 
-**Rolling Update** is the default deployment strategy in Kubernetes. It replaces old Pods with new ones incrementally to ensure high availability and zero downtime.
+## Rolling Update 
+It is the default deployment strategy in Kubernetes. It replaces old Pods with new ones incrementally to ensure high availability and zero downtime.
 
-## Key Concepts
+**Key Concepts**
 
 1. **Gradual Pod Replacement**: Old Pods are replaced incrementally, ensuring some Pods always remain available.
 2. **Rollback Support**: Easily rollback to a previous version if issues occur.
