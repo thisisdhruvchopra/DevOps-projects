@@ -1,5 +1,10 @@
+# There are two types of Provisioning PersistentVolume Storage:
+- Manual Provisioning
+- Dynamic Provisioning
 
-# Kubernetes Storage: Manual vs Dynamic Provisioning
+Let's Discuss the difference. 
+
+#Manual vs Dynamic Provisioning
 
 In Kubernetes, **manual provisioning** and **dynamic provisioning** refer to two different approaches for creating and managing storage resources (specifically Persistent Volumes, or PVs) for your pods. Below is a breakdown of each method:
 
