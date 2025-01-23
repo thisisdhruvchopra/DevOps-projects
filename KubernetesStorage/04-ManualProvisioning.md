@@ -1,4 +1,4 @@
-# Kubernetes Storage : Mannual Provisioning
+# Kubernetes Storage : Manual Provisioning
 ---
 
 
